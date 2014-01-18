@@ -1,0 +1,28 @@
+{
+  "name": "fantasydo",
+  "version": "0.0.0",
+  "author": {
+    "name": "Russell McClellan"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "http://github.com/russellmcc/fantasydo"
+  },
+  "description": "ES6 do-notation for fantasyland",
+  "dependencies" : {},
+  "devDependencies": {
+    "browserify" : "*",
+    "uglifyify" : "*",
+    "mocha" : "*",
+    "chai" : "*"
+  },
+  "directories": {},
+  "engines": {
+    "node": ">=0.11.10"
+  },
+  "main" : "index",
+  "scripts": {
+    "prepublish": "./build.sh",
+     "test" : "mocha -u tdd --harmony"
+  }
+}
