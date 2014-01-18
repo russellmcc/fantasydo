@@ -36,17 +36,17 @@ Here's a very simple `Maybe` monad:
 Now, we can write a function that depends on multiple maybe values, and will only complete if all of them are not `none`:
 
 	Do(function*(){
-	    var a = yield testm.of(7);
-	    var b = yield testm.of(a + 9);
+	    var a = yield Maybe.of(7);
+	    var b = yield Maybe.of(a + 9);
 	    return b;
-	 }).val // => 16
+	 }, Maybe).val; // => 16
 
     Do(function*(){
-        var a = yield testm.of(7);
-        var q = yield testm.none();
-        var b = yield testm.of(a + 9);
+        var a = yield Maybe.of(7);
+        var q = yield Maybe.none();
+        var b = yield Maybe.of(a + 9);
         return b;
-    }, testm).val  // => null
+    }, Maybe).val;  // => null
 
 ### Multi-mode
 
@@ -63,13 +63,13 @@ Fantasy Do also supports monads that may call their `chain` parameter multiple t
     };
 	Array.prototype.of = function(t) {return [t];}
 
-then, 
+then,
 
     Do.Multi(function*(){
         let c = yield [1, 2];
         let d = yield [c + 1, c + 2];
         return d;
-    } // => [2, 3, 3, 4]
+    }, Array.prototype); // => [2, 3, 3, 4]
 
 ## License
 
